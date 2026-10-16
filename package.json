@@ -1,0 +1,17 @@
+{
+  "name": "kids-shop-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --port 3000 --host 0.0.0.0",
+    "build": "nuxt build",
+    "preview": "nuxt preview --port 3000 --host 0.0.0.0",
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxt generate"
+  },
+  "devDependencies": {
+    "nuxt": "^3.14.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0"
+  }
+}
