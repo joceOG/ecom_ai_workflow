@@ -2,10 +2,10 @@
   <div class="container">
     <!-- HERO : stepped title, two photographs -->
     <section class="hero" aria-label="KidiShop">
-      <img class="hero-small-photo drift" src="https://picsum.photos/id/314/800/500" width="800" height="500" alt="Route vide à travers les dunes, l'horizon reste ouvert" />
+      <img class="hero-small-photo drift" src="/img/hero-couture.jpg" width="800" height="500" alt="Mains qui cousent un tissu à pois dans un atelier de confection" />
       <h1 class="hero-line-1 mask"><span>Petits</span></h1>
       <h1 class="hero-line-2 mask second"><span>grands</span></h1>
-      <img class="hero-tall-photo" src="https://picsum.photos/id/525/880/1100" width="880" height="1100" alt="Dune orange, petites silhouettes sur la crête, comme une fratrie qui grandit" fetchpriority="high" />
+      <img class="hero-tall-photo" src="/img/cotton-macro.jpg" width="880" height="1100" alt="Capsule de coton en macro, la matière avant le vêtement" fetchpriority="high" />
       <p class="hero-sentence reveal" style="--d:200ms">Des habits de 0 à 20 ans qui suivent la croissance, payés cash à la porte.</p>
       <div class="hero-cta reveal" style="--d:280ms">
         <NuxtLink to="/catalogue" class="btn">Voir le catalogue</NuxtLink>
@@ -40,7 +40,7 @@
     <section aria-label="Le catalogue par âge">
       <h2 class="list-head reveal">Chaque âge a<br />sa coupe exacte</h2>
       <div class="list-grid">
-        <img class="list-side-photo reveal" src="https://picsum.photos/id/141/880/1100" width="880" height="1100" loading="lazy" alt="Collines dorées sous un ciel bleu, horizon large" />
+        <img class="list-side-photo reveal" src="/img/cotton-field.jpg" width="880" height="1100" loading="lazy" alt="Champ de coton, la matière première des bodies" />
         <div class="list-table">
           <div class="row-name">Univers</div>
           <div v-for="(c, i) in cats" :key="c.slug" class="trow reveal" :class="{group: i===4}" :style="`--d:${i*60}ms`">
@@ -68,12 +68,12 @@
     <!-- GALLERY : staggered pairs -->
     <section aria-label="Le monde autour">
       <div class="pair">
-        <div><img class="reveal" src="https://picsum.photos/id/563/1200/900" width="1200" height="900" loading="lazy" alt="Route droite vers des montagnes sombres" /><p class="caption">La route de l'école, 7h12</p></div>
-        <div class="b"><img class="reveal" style="--d:120ms" src="https://picsum.photos/id/185/1000/800" width="1000" height="800" loading="lazy" alt="Plaine désertique sous horizon chaud" /><p class="caption">La plaine, horizon chaud</p></div>
+        <div><img class="reveal" src="/img/cobbler.jpg" width="1200" height="900" loading="lazy" alt="Cordonnier à l'ouvrage dans son échoppe" /><p class="caption">L'ouvrage main, comme les finitions</p></div>
+        <div class="b"><img class="reveal" style="--d:120ms" src="/img/cotton-white.jpg" width="1000" height="800" loading="lazy" alt="Le blanc du coton avant la teinture" /><p class="caption">Le blanc avant la teinture</p></div>
       </div>
       <div class="pair flip">
-        <div class="a"><img class="reveal" src="https://picsum.photos/id/261/1200/800" width="1200" height="800" loading="lazy" alt="Crête de dune entre ombre et lumière" /><p class="caption">Une toise naturelle</p></div>
-        <div class="b"><img class="reveal" style="--d:120ms" src="https://picsum.photos/id/767/800/1000" width="800" height="1000" loading="lazy" alt="Route droite dans une forêt de pins" /><p class="caption">La route des pins, vacances</p></div>
+        <div class="a"><img class="reveal" src="/img/cotton-field.jpg" width="1200" height="800" loading="lazy" alt="La matière première, en plein champ" /><p class="caption">La matière en plein champ</p></div>
+        <div class="b"><img class="reveal" style="--d:120ms" src="/img/atelier.jpg" width="800" height="1000" loading="lazy" alt="Atelier de couture, machine et gestes précis" /><p class="caption">L'atelier en gestes précis</p></div>
       </div>
     </section>
 
@@ -92,7 +92,7 @@
 
     <!-- CTA : last photograph, text beside -->
     <section class="cta" aria-label="Commander">
-      <img src="https://picsum.photos/id/314/1600/1440" width="1600" height="1440" loading="lazy" alt="Route vide à travers les dunes, cap sur la rentrée" />
+      <img src="/img/hero-couture.jpg" width="1600" height="1440" loading="lazy" alt="L'atelier coud la rentrée" />
       <div class="cta-text">
         <h2 class="reveal">La rentrée tient en un pack</h2>
         <p class="reveal" style="--d:100ms">Trois pièces, sept mille francs économisés, une seule livraison cash. Le pack rentrée en 6 ou 8 ans.</p>

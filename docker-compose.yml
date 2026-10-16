@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-kidishop}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kidishop}
+      POSTGRES_DB: ${POSTGRES_DB:-kidishop}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kidishop}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-kidishop}:${POSTGRES_PASSWORD:-kidishop}@db:5432/${POSTGRES_DB:-kidishop}
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+      HOST: 0.0.0.0
+      PORT: 3000
+    command: sh -c "node scripts/db-migrate.mjs all || true; node .output/server/index.mjs"
+    # En dev local sans build: utilisez `npm run dev` + DATABASE_URL vers localhost
+
+volumes:
+  pgdata:

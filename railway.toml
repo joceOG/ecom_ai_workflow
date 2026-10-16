@@ -1,10 +1,10 @@
 [build]
-builder = "NIXPACKS"
-buildCommand = "npm install --legacy-peer-deps --no-audit --no-fund && npm run build"
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "node .output/server/index.mjs"
+startCommand = "sh -c \"node scripts/db-migrate.mjs all || true; node .output/server/index.mjs\""
 healthcheckPath = "/api/meta"
-healthcheckTimeout = 120
+healthcheckTimeout = 180
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3

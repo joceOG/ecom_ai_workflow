@@ -44,7 +44,7 @@
     <div></div>
     <div>
       <p class="wordmark-big">KidiShop</p>
-      <div class="legal">© 2026 KidiShop · Prototype avec mocks API · Ambiance : Sonneveld, Zanon, Brown, Rose, Shield, de Groot, Marchand via Unsplash · Produits : visuels en attente du shoot</div>
+      <div class="legal">© 2026 KidiShop · Prototype avec mocks API · Ambiance Wikimedia Commons (CC) : Milošević, Bass-Deschenes, Chakraborty, Bubba73, Auregar63 · Produits : visuels en attente du shoot</div>
     </div>
   </footer>
 </template>

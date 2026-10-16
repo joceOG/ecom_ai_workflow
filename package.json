@@ -7,11 +7,21 @@
     "build": "nuxt build",
     "preview": "nuxt preview --port 3000 --host 0.0.0.0",
     "start": "node .output/server/index.mjs",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "db:migrate": "node scripts/db-migrate.mjs schema",
+    "db:seed": "node scripts/db-migrate.mjs seed",
+    "db:setup": "node scripts/db-migrate.mjs all",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f app db"
   },
   "devDependencies": {
+    "@types/pg": "^8.23.1",
     "nuxt": "^3.14.0",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
   }
 }
