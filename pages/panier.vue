@@ -4,7 +4,8 @@
   <div v-else class="grid" style="grid-template-columns:2fr 1fr">
     <div>
       <div v-for="(i,idx) in cart" :key="i.sku" class="card" style="flex-direction:row;margin-bottom:10px">
-        <img :src="i.image" style="width:90px;height:90px" />
+        <img v-if="i.image" :src="i.image" :alt="i.name" style="width:90px;height:90px;object-fit:cover" />
+        <span v-else class="product-block thumb-visual tone-2"><span class="pb-meta">{{ i.age }}</span></span>
         <div class="card-body" style="flex:1">
           <b>{{ i.name }} — {{ i.age }} · {{ i.color }}</b>
           <div>{{ fmt(i.price) }} x <input v-model.number="i.qty" type="number" min="1" max="9" style="width:60px" @change="save" /> = <b>{{ fmt(i.price*i.qty) }}</b></div>
@@ -15,7 +16,7 @@
     <div class="card" style="padding:16px;height:fit-content">
       <h3>Total</h3>
       <div>Sous-total : <b>{{ fmt(subtotal) }}</b></div>
-      <div style="display:flex;gap:6px;margin:8px 0"><input v-model="code" placeholder="Code KIDS10" style="flex:1;padding:8px;border-radius:8px;border:1px solid var(--line)" /><button class="btn small" @click="apply">OK</button></div>
+      <div style="display:flex;gap:6px;margin:8px 0"><input v-model="code" placeholder="Code KIDS10" style="flex:1;padding:8px;" /><button class="btn small" @click="apply">OK</button></div>
       <div v-if="coupon" class="success">{{ coupon.label }}</div>
       <div v-if="couponError" class="alert">{{ couponError }}</div>
       <div>Remise : <b>-{{ fmt(discount) }}</b></div>

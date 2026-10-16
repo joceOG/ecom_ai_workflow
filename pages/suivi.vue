@@ -1,7 +1,7 @@
 <template>
   <h1>Suivi commande + retours</h1>
   <div class="card" style="padding:16px">
-    <div style="display:flex;gap:8px"><input v-model="number" placeholder="N° ex: KD-123456" style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--line)" /><button class="btn" @click="track">Suivre</button></div>
+    <div style="display:flex;gap:8px"><input v-model="number" placeholder="N° ex: KD-123456" style="flex:1;padding:10px;" /><button class="btn" @click="track">Suivre</button></div>
     <div v-if="result" class="success" style="margin-top:10px">
       <b>{{ result.number }}</b> — {{ result.status }} · {{ result.eta }}<br/>Cash : {{ fmt(result.total) }} · {{ result.zone }}
       <div style="margin-top:8px">Timeline mock : Confirmée → Préparation → Expédiée → Livrée (payée cash)</div>

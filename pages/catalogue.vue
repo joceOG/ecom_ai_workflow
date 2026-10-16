@@ -9,8 +9,11 @@
   </div>
   <div v-if="pending">Chargement...</div>
   <div v-else class="grid products">
-    <div v-for="p in items" :key="p.slug" class="card">
-      <NuxtLink :to="`/produit/${p.slug}`"><img :src="p.image" :alt="p.name" /></NuxtLink>
+    <div v-for="(p, idx) in items" :key="p.slug" class="card">
+      <NuxtLink :to="`/produit/${p.slug}`" class="product-block card-visual" :class="`tone-${idx % 3}`" :aria-label="p.name">
+        <span class="pb-name">{{ p.name }}</span>
+        <span class="pb-meta">{{ p.variants[0]?.age }} · {{ fmt(p.price) }}</span>
+      </NuxtLink>
       <div class="card-body">
         <div><span v-if="p.promo" class="badge promo">-{{ Math.round((1-p.price/(p.oldPrice||p.price))*100) }}%</span> <span style="font-size:12px;color:var(--muted)">{{ p.category }}</span></div>
         <NuxtLink :to="`/produit/${p.slug}`" style="font-weight:800">{{ p.name }}</NuxtLink>

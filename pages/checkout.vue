@@ -9,12 +9,12 @@
   </div>
   <div v-else class="grid" style="grid-template-columns:2fr 1fr">
     <div class="card" style="padding:16px;gap:10px">
-      <input v-model="form.name" placeholder="Nom complet" style="padding:10px;border-radius:10px;border:1px solid var(--line)" />
-      <input v-model="form.phone" placeholder="Téléphone / WhatsApp" style="padding:10px;border-radius:10px;border:1px solid var(--line)" />
-      <select v-model="form.zone" style="padding:10px;border-radius:10px;border:1px solid var(--line)">
+      <input v-model="form.name" placeholder="Nom complet" style="padding:10px;" />
+      <input v-model="form.phone" placeholder="Téléphone / WhatsApp" style="padding:10px;" />
+      <select v-model="form.zone" style="padding:10px;">
         <option v-for="z in zones" :key="z.id" :value="z.id">{{ z.name }} — {{ fmt(z.base_fee) }} · {{ z.eta }}</option>
       </select>
-      <textarea v-model="form.address" placeholder="Adresse complète + repère" rows="3" style="padding:10px;border-radius:10px;border:1px solid var(--line)"></textarea>
+      <textarea v-model="form.address" placeholder="Adresse complète + repère" rows="3" style="padding:10px;"></textarea>
       <div class="alert">Paiement en espèces à la réception. Aucune carte requise (mock).</div>
       <button class="btn" @click="submit" :disabled="loading">{{ loading ? 'Envoi...' : `Confirmer ${fmt(total)} cash` }}</button>
       <div v-if="error" class="alert">{{ error }}</div>
@@ -22,7 +22,7 @@
     <div class="card" style="padding:16px;height:fit-content">
       <h3>Récap ({{ count }} articles)</h3>
       <div v-for="i in cart" :key="i.sku" style="font-size:14px">{{ i.qty }}x {{ i.name }} {{ i.age }} — {{ fmt(i.price*i.qty) }}</div>
-      <hr/><div>Sous-total {{ fmt(subtotal) }}</div><div>Livraison {{ fmt(ship) }}</div><div><b>Total cash {{ fmt(total) }}</b></div>
+      <div style="margin-top:12px">Sous-total {{ fmt(subtotal) }}</div><div>Livraison {{ fmt(ship) }}</div><div><b>Total cash {{ fmt(total) }}</b></div>
     </div>
   </div>
 </template>

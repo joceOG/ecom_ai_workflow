@@ -4,11 +4,14 @@
   <div v-else>
     <NuxtLink to="/catalogue" class="btn ghost small">← Retour</NuxtLink>
     <div class="pdp">
-      <div><img :src="product.image" :alt="product.name" /></div>
+      <div class="product-block pdp-visual tone-0" aria-label="Visuel produit en attente du shoot">
+        <span class="pb-name">{{ product.name }}</span>
+        <span class="pb-meta">{{ selected?.age }} · {{ selected?.color }} · {{ fmt(selected?.price || product.price) }}</span>
+      </div>
       <div>
         <div><span v-if="product.promo" class="badge promo">Promo</span> <span v-if="product.isNew" class="badge new">Nouveau</span></div>
         <h1>{{ product.name }}</h1>
-        <div>★ {{ product.rating }} ({{ product.reviews }} avis) · {{ product.material }}</div>
+        <div>{{ product.rating }}/5 ({{ product.reviews }} avis) · {{ product.material }}</div>
         <div style="margin:10px 0"><span class="price" style="font-size:26px">{{ fmt(selected?.price || product.price) }}</span><span v-if="selected?.oldPrice" class="old">{{ fmt(selected.oldPrice) }}</span></div>
         <p>{{ product.description }}</p>
         <h4>Taille / Âge + stock live (mock)</h4>
@@ -18,13 +21,13 @@
           </button>
         </div>
         <div style="display:flex;gap:8px;margin:14px 0;align-items:center">
-          <input v-model.number="qty" type="number" min="1" max="9" style="width:70px;padding:10px;border-radius:10px;border:1px solid var(--line)" />
+          <input v-model.number="qty" type="number" min="1" max="9" style="width:70px;padding:10px;" />
           <button class="btn" @click="add">Ajouter — Cash à la livraison</button>
         </div>
         <div class="alert">Livraison {{ zoneEta }} · Retour 30j · Échange taille gratuit. <NuxtLink to="/guide-tailles" style="text-decoration:underline">Voir guide</NuxtLink></div>
         <h4>Complète le look</h4>
         <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
-          <NuxtLink v-for="r in related" :key="r.slug" :to="`/produit/${r.slug}`" class="card" style="padding:8px;font-size:13px;font-weight:700"><img :src="r.image" style="height:120px" />{{ r.name }}<br/>{{ fmt(r.price) }}</NuxtLink>
+          <NuxtLink v-for="(r, ri) in related" :key="r.slug" :to="`/produit/${r.slug}`" class="card" style="padding:8px;font-size:13px;font-weight:700"><span class="product-block mini-visual" :class="`tone-${ri % 3}`"><span class="pb-name">{{ r.name }}</span></span>{{ r.name }}<br/>{{ fmt(r.price) }}</NuxtLink>
         </div>
       </div>
     </div>

@@ -26,7 +26,10 @@ export type Product = {
   image: string; description: string; variants: Variant[]
 }
 
-const img = (seed: string) => `https://picsum.photos/seed/${seed}/600/700`
+// Photos produits : shoot en attente. `image` reste vide et l'UI rend des
+// aplats typographiques honnêtes. Dépose les vraies photos dans public/img/
+// et renseigne `image: '/img/robe-fleurie.jpg'` + public/img/CREDITS.md.
+const img = (_seed: string) => ''
 
 export const PRODUCTS: Product[] = [
   {
